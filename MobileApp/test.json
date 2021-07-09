@@ -1,0 +1,17 @@
+{
+  "message": "success",
+  "data": {
+    "_id": "60e6f90bf8164e1b34576830",
+    "fName": "Pasan",
+    "lName": "Lahiru",
+    "email": "pasanabey1@gmail.com",
+    "password": "$2b$10$f3ZioIKexQrtsW1QCFt2uuiiHOM6zgy5vEf44pxSGLkhHctArbRIu",
+    "avatar": "0",
+    "userState": true,
+    "regDate": "2021-08-06T18:30:00.000Z",
+    "regTime": "04:32 AM",
+    "__v": 0
+  },
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InBhc2FuYWJleTFAZ21haWwuY29tIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpYXQiOjE2MjU3OTQwNDAsImV4cCI6MTYyNTg4MDQ0MH0.9qjQGfs6qEiz6DoPGjkA33ey8D3izN-ZTRi3vtuicHs",
+  "state": true
+}
