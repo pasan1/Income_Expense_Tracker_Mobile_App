@@ -63,7 +63,8 @@ export default class signup extends Component {
         //   console.log('New Data Saved');
         //   this.storeData(json);
         // }
-        this.storeData(json); //Test
+        // this.storeData(json); //Test
+        this.props.navigation.navigate('Login');
       })
       .catch(console.error);
     console.log('end signup-click');

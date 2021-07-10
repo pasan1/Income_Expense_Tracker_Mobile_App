@@ -12,10 +12,12 @@ export default class Login extends Component {
       showPassword: true,
       pass: 'Show',
     };
+    // this.checkOldLogins();
   }
 
-  componentDidMount() {
+  checkOldLogins() {
     if (this.getData() != undefined || this.getData() != null) {
+      console.log('this.getData() :' + this.getData());
       this.props.navigation.navigate('Home');
     }
   }

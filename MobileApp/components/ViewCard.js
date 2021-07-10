@@ -25,6 +25,9 @@ export default class ViewCard extends Component {
     return (
       <View>
         <View style={styles.BoxModel}>
+          <View>
+            <Text style={styles.txtUser}>Welcome {this.props.userName}</Text>
+          </View>
           <View style={styles.Box}>
             <View style={styles.txtBox}>
               <Text style={styles.txt1}>Balance</Text>
@@ -79,6 +82,7 @@ const styles = StyleSheet.create({
   },
   txt1: {
     color: 'white',
+    fontWeight: 'bold',
     fontSize: 20,
   },
   txt2: {
@@ -87,6 +91,11 @@ const styles = StyleSheet.create({
   },
   txt3: {
     color: 'white',
+    fontSize: 15,
+  },
+  txtUser: {
+    color: 'black',
+    fontWeight: 'bold',
     fontSize: 15,
   },
 });

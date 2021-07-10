@@ -29,12 +29,14 @@ export default class Home extends Component {
       totalExpense: 0,
       balance: 0,
       email: '',
+      userName: '',
     };
+    this.getData();
   }
 
   componentDidMount() {
-    this.getAllData();
-    this.getData();
+    // this.getData();
+    // this.getAllData();
   }
 
   getData = async () => {
@@ -43,7 +45,13 @@ export default class Home extends Component {
       console.log('Async store jsonValue: ' + JSON.parse(jsonValue).data.email);
       this.setState({
         email: JSON.parse(jsonValue).data.email,
+        userName:
+          JSON.parse(jsonValue).data.fName +
+          ' ' +
+          JSON.parse(jsonValue).data.lName,
       });
+      console.log('this.state.email: ' + this.state.email);
+      this.getAllData();
       return jsonValue != null ? JSON.parse(jsonValue) : null;
     } catch (e) {
       // error reading value
@@ -54,6 +62,7 @@ export default class Home extends Component {
   removeData = async () => {
     try {
       await AsyncStorage.removeItem('logins');
+      await AsyncStorage.clear();
     } catch (e) {
       // remove error
     }
@@ -84,10 +93,11 @@ export default class Home extends Component {
   }
 
   getAllData() {
+    // console.log('getAllData() - this.state.email: ' + this.state.email);
     fetch('http://192.168.1.4:3000/api/v1/incomeExpenseRoute/getAll', {
       method: 'POST',
       body: JSON.stringify({
-        email: 'pasanabey1@gmail.com',
+        email: this.state.email,
       }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
@@ -173,6 +183,8 @@ export default class Home extends Component {
           totIncome={this.state.totalIncome}
           totExpense={this.state.totalExpense}
           balance={this.state.balance}
+          userName={this.state.userName}
+          style={styles.BoxModel}
         />
 
         <ScrollView>
@@ -181,6 +193,7 @@ export default class Home extends Component {
               key={el._id}
               name={el.description}
               price={el.price}
+              type={el.type}
               id={el._id}
               reload={this.getAllData}
             />
@@ -243,7 +256,6 @@ export default class Home extends Component {
               </View>
             </View>
             <Button
-              icon="camera"
               mode="contained"
               onPress={() => {
                 console.log('Add clicked');
@@ -284,5 +296,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     backgroundColor: '#34495e',
     paddingHorizontal: 5,
+  },
+  BoxModel: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowOpacity: 0.44,
+    shadowRadius: 10.32,
+
+    elevation: 18,
   },
 });

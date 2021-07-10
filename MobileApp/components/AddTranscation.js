@@ -57,7 +57,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginHorizontal: 20,
-    borderColor: 'black',
+    borderColor: 'red',
+    borderRadius: 2,
+    backgroundColor: 'silver',
     marginVertical: 10,
     shadowColor: '#000',
     shadowOffset: {
